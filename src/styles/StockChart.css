@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+}
+
+.chart-container {
+  perspective: 1200px;
+  width: 800px;
+  height: 500px;
+  position: relative;
+  background: linear-gradient(180deg, #ffebee, #ef9a9a);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  overflow: visible;
+  margin: 50px auto;
+}
+
+.chart-title {
+  position: absolute;
+  top: -50px;
+  width: 100%;
+  text-align: center;
+  color: #b71c1c;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  animation: fadeInTitle 2s ease-out;
+}
+
+.bar-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.bar {
+  position: absolute;
+  bottom: 0;
+  width: 80px;
+  background: linear-gradient(to top, #d32f2f, #f44336);
+  transform-origin: bottom;
+  transform-style: preserve-3d;
+  transition: height 1s ease-in-out, transform 0.5s ease;
+  animation: growBar 1.5s ease-out forwards;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.bar:hover {
+  transform: scaleY(1.05) translateZ(20px);
+  background: linear-gradient(to top, #f44336, #ef5350);
+}
+
+.bar::before,
+.bar::after {
+  content: '';
+  position: absolute;
+  background: inherit;
+}
+
+.bar::before {
+  width: 80px;
+  height: 12px;
+  top: -12px;
+  transform: rotateX(90deg);
+  background: linear-gradient(#f44336, #d32f2f);
+}
+
+.bar::after {
+  width: 12px;
+  height: 100%;
+  right: -12px;
+  transform: rotateY(90deg);
+  background: linear-gradient(to bottom, #f44336, #c62828);
+}
+
+.bar-label {
+  position: absolute;
+  bottom: -40px;
+  width: 80px;
+  text-align: center;
+  color: #b71c1c;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.bar-value {
+  position: absolute;
+  top: -30px;
+  width: 80px;
+  text-align: center;
+  color: #b71c1c;
+  font-size: 14px;
+  font-weight: bold;
+  animation: fadeInValue 2s ease-out;
+}
+
+.axis-x,
+.axis-y {
+  position: absolute;
+  background: #b71c1c;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.axis-x {
+  width: 100%;
+  height: 3px;
+  bottom: 0;
+  transform: translateZ(-15px);
+}
+
+.axis-y {
+  width: 3px;
+  height: 350px;
+  left: -30px;
+  bottom: 0;
+  transform: translateZ(-15px);
+}
+
+.axis-label-y {
+  position: absolute;
+  left: -60px;
+  top: 50%;
+  transform: rotate(-90deg);
+  color: #b71c1c;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+@keyframes growBar {
+  0% {
+    height: 0;
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes fadeInValue {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInTitle {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

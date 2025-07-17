@@ -1,0 +1,190 @@
+/* Neon Animated Border Button */
+
+.primary-button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 10px;
+  color: #f40303;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 0.5s;
+  /* border-radius: 12%; */
+}
+
+.primary-button:hover {
+  background: rgba(234, 0, 0, 0.738);
+  color: #ffff;
+  box-shadow: 0 0 5px #f11313,
+              0 0 6px #f11313,
+              0 0 7px #f11313,
+              0 0 8px #f11313;
+}
+
+.primary-button span {
+  position: absolute;
+  display: block;
+}
+
+.primary-button span:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ba1d1d);
+  animation: animate1 1s linear infinite;
+}
+.primary-button span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #ba1d1d);
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+.primary-button span:nth-child(3) {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #ba1d1d);
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+.primary-button span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #ba1d1d);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+@keyframes animate1 {
+  0% { left: -100%; }
+  50%, 100% { left: 100%; }
+}
+@keyframes animate2 {
+  0% { top: -100%; }
+  50%, 100% { top: 100%; }
+}
+@keyframes animate3 {
+  0% { right: -100%; }
+  50%, 100% { right: 100%; }
+}
+@keyframes animate4 {
+  0% { bottom: -100%; }
+  50%, 100% { bottom: 100%; }
+}
+
+
+
+.scroll-lock {
+  overflow: hidden !important;
+  height: 100%;
+}
+
+.create-account-page {
+  height: 100vh;
+  background: linear-gradient(to bottom, #ffebeb, #ffd6d6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+  padding-top: 60px;
+}
+
+.top-wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  background: url('/assets/red-wave.svg') no-repeat center top;
+  background-size: cover;
+}
+
+.form-wrapper {
+  z-index: 1;
+  width: 90%;
+  max-width: 360px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  padding: 30px 20px;
+  box-shadow: 0 10px 30px rgba(255, 0, 0, 0.1);
+  text-align: center;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #900000;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #aa3a3a;
+  margin-bottom: 24px;
+}
+
+.form .input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  border: none;
+  border-bottom: 1px solid #cc6666;
+  background: transparent;
+  font-size: 14px;
+  color: #700000;
+}
+
+.form .input:focus {
+  outline: none;
+  border-bottom: 2px solid #e60000;
+}
+
+.submit-button {
+  width: 100%;
+  background-color: #e60000;
+  color: white;
+  border: none;
+  padding: 12px 0;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #cc0000;
+}
+
+.bottom-links {
+  margin-top: 16px;
+}
+
+.link {
+  color: #c0392b;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.3s;
+}
+
+.link:hover {
+  color: #900000;
+}
+
+.scroll-lock {
+  overflow: hidden;
+  height: 100vh;
+  touch-action: none;
+}

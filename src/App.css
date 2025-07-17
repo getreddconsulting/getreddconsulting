@@ -1,0 +1,109 @@
+@import "tailwindcss";
+@import './styles/fonts.css'; 
+
+#root {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+.scroll-lock {
+  overflow: hidden !important;
+  height: 100%;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+@keyframes line-draw {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.line-draw {
+  animation: line-draw 1s ease-out forwards;
+}
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.animate-slide-in-left {
+  animation: slide-in-left 1s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.animate-slide-in-right {
+  animation: slide-in-right 1s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.underline-first-letter::first-letter {
+  text-decoration: underline;
+}
+@keyframes glowMove {
+  0% {
+    box-shadow: 0 0 0px #ff4d4d, 0 0 5px #ff4d4d, 0 0 10px #ff4d4d;
+  }
+  50% {
+    box-shadow: 0 0 10px #ff1a1a, 0 0 20px #ff1a1a, 0 0 30px #ff1a1a;
+  }
+  100% {
+    box-shadow: 0 0 0px #ff4d4d, 0 0 5px #ff4d4d, 0 0 10px #ff4d4d;
+  }
+}
+
