@@ -74,21 +74,22 @@ export default function OurApproach() {
           for small businesses and lenders.
         </h2>
 
-        <div className="flex flex-wrap gap-4 mb-6">
-          {labels.map((label, idx) => (
-            <button
-              key={label}
-              onClick={() => handleExplore(idx)}
-              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-800 ${
-                active === idx
-                  ? " text-red-700 shadow-md scale-105 border border-red-800 hover:bg-red-100"
-                  : "bg-white text-red-700 border border-red-800 hover:bg-red-100"
-              }`}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
+       <div className="flex flex-wrap gap-4 mb-6">
+  {labels.map((label, idx) => (
+    <button
+      key={label}
+      onClick={() => handleExplore(idx)}
+      className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-800 ${
+        active === idx
+          ? "bg-white text-red-700 shadow-md scale-105 border border-red-800 hover:bg-red-100"
+          : "bg-white text-red-700 border border-red-800 hover:bg-red-100"
+      }`}
+    >
+      {label}
+    </button>
+  ))}
+</div>
+
 
         <div className="bg-black text-gray-700 border-l-2 border-red-500 pl-6 py-4 max-w-3xl">
           <h3 className="text-2xl font-bold mb-2 text-red-500">

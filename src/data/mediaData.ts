@@ -52,7 +52,7 @@ export const mediaData = {
       ]
     },
     {
-      title: "HHHH",
+      title: "Hard Hats & High Heels",
       image: "/media/events/HHHH/hhhh2023_6.jpg",
       category: "Hard Hats & High Heels",
       date: "2023",
@@ -87,18 +87,17 @@ export const mediaData = {
       cover: "/media/Article/article_2.jpg"
     }
     
-    
   ],
 
   newsletters: [
    {
-    title: "Design Trends 2025",
-    content: "Discover emerging design trends that will dominate this year.",
+    title: "",
+    content: "",
     img: "/media/Article/article_2.jpg",
   },
   {
-    title: "AI in Daily Life",
-    content: "Explore how AI is changing the way we work and live.",
+    title: "",
+    content: "",
     img: "/media/Article/article_1.jpg",
   },
   ]

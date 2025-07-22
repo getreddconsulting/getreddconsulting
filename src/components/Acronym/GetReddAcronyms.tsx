@@ -81,23 +81,25 @@ const GetReddAcronymBar: React.FC = () => {
       animate={{ width: isOpen ? "fit-content" : "3rem", opacity }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       style={{
-        backgroundColor: "#b71c1c",
+        backgroundColor: " rgba(243,244,246,0.9)",
         cursor: "pointer",
         color: "white",
         fontWeight: "bold",
         letterSpacing: "0.1em",
         borderRadius: 0,
         height: barHeight,
+        border: "1px solid #ccc",
       }}
       onClick={() => setIsOpen(!isOpen)}
     >
       <div
         className="text-white flex justify-center items-center"
         style={{
+          backgroundColor: "#b71c1c",
           writingMode: "vertical-rl",
           textOrientation: "upright",
           padding: "0.5rem",
-          fontSize: isMobile ? "0.55rem" : isTablet ? "0.7rem" : "0.8rem",
+          fontSize: isMobile ? "0.55rem" : isTablet ? "0.7rem" : "0.9rem",
           lineHeight: "1.6rem",
         }}
       >
@@ -106,7 +108,7 @@ const GetReddAcronymBar: React.FC = () => {
 
       {isOpen && (
         <motion.div
-          className={`px-4 py-2 h-full bg-gray-100 text-gray-800 flex ${
+          className={`px-4 py-2 h-full  text-gray-600 flex ${
             isMobile ? "flex-col gap-0 items-start" : "gap-4 items-center"
           }`}
           initial="hidden"
@@ -120,7 +122,7 @@ const GetReddAcronymBar: React.FC = () => {
               variants={itemVariants}
             >
               <span
-                className={`text-red-600 font-extrabold ${
+                className={`text-red-500 font-extrabold ${
                   isMobile ? "text-xl" : isTablet ? "text-xl" : "text-3xl"
                 }`}
               >

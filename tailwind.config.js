@@ -4,6 +4,26 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  safelist: [
+  'bg-red-600',
+  'hover:bg-red-700',
+  'bg-white',
+  'text-black',
+  'hover:text-white',
+  'border',
+  'border-white',
+  'hover:border-red-600',
+  'focus:outline-none',
+  'rounded-lg',
+  'p-2',
+  'text-sm',
+  'placeholder-white',
+  'bg-opacity-30',
+  'hover:bg-transparent', // ✅ override unwanted hover:bg
+  'active:bg-transparent', // ✅ for active state
+  'focus:bg-transparent', // ✅ for focus state (optional)
+],
+
   theme: {
     
     extend: {
@@ -14,7 +34,8 @@ export default {
       },
       
        screens: {
-     'lt1300': { max: '1299px' },
+     'short': { raw: '(max-height: 780px)' },
+     'lt1300': '1350px' ,
     },
       keyframes: {
         "line-draw": {

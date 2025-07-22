@@ -7,10 +7,6 @@ import Contact from "../../pages/contact/contact";
 import PrimaryButton from "../Buttons/primarybutton";
 import type { Variants } from "framer-motion";
 
-// interface HeaderProps {
-//   dark?: boolean;
-// }
-
 const navItemVariants: Variants = {
   hidden: { opacity: 0, y: -10 },
   visible: (i: number) => ({
@@ -28,8 +24,8 @@ export const Header = () => {
   const location = useLocation();
   const [getInTouchOpen, setGetInTouchOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showHeader, setShowHeader] = useState(true);
   const [showContact, setShowContact] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 950);
 
@@ -42,40 +38,12 @@ export const Header = () => {
   }, []);
 
   useEffect(() => {
-    if (isMediaPage) return; // Skip scroll effect on media page
-
-    let lastScroll = window.scrollY;
     const handleScroll = () => {
-      const homeSection = document.getElementById("home");
-      const homeBottom = homeSection?.getBoundingClientRect().bottom ?? 0;
-      if (homeBottom > 0) {
-        setShowHeader(true);
-        return;
-      }
-
-      const currentScroll = window.scrollY;
-      setShowHeader(currentScroll <= lastScroll);
-      lastScroll = currentScroll;
+      setScrolled(window.scrollY > 10);
     };
-
-    const handleClickOutside = (e: MouseEvent) => {
-      if (
-        getInTouchOpen &&
-        dropdownRef.current &&
-        !dropdownRef.current.contains(e.target as Node)
-      ) {
-        setGetInTouchOpen(false);
-      }
-    };
-
     window.addEventListener("scroll", handleScroll);
-    document.addEventListener("click", handleClickOutside);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [getInTouchOpen, isMediaPage]);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
     { id: "home", label: "Home" },
@@ -84,34 +52,30 @@ export const Header = () => {
     { id: "blog", label: "Leadership" },
   ];
 
-  const headerClass = `w-full flex items-center justify-between px-6 sticky top-0 z-30 transition-all duration-300 py-3 lg:py-2 ${
-    isMediaPage
-      ? "bg-gradient-to-b from-gray-900 to-gray-800 opacity-100"
-      : showHeader
-      ? "bg-transparent opacity-100"
-      : "bg-transparent opacity-0 pointer-events-none"
+  const headerClass = `fixed top-0 w-full z-50 transition-all duration-300 px-6 py-3 lg:py-2 flex items-center justify-between ${
+    isMediaPage || scrolled
+      ? "bg-gradient-to-b from-gray-900 to-gray-500 backdrop-blur-lg shadow-md h-20"
+      : "bg-transparent"
   }`;
 
   return (
     <header className={headerClass}>
+      {/* Logo */}
       <div className="flex items-center">
-        <img
-          src={LogoFooter}
-          alt="Logo"
-          className="w-18 h-14 lg:h-28 lg:w-40 drop-shadow-lg"
-        />
+       <img
+  src={LogoFooter}
+  alt="Logo"
+  className={`transition-all duration-300 ease-in-out drop-shadow-lg ${
+    scrolled ? "h-20 w-32" : "h-20 w-32 lg:h-28 lg:w-40"
+  }`}
+/>
+
       </div>
 
-      {isMobile ? (
-        <div
-          className="text-white text-2xl cursor-pointer"
-          onClick={() => setMenuOpen((prev) => !prev)}
-        >
-          {menuOpen ? "✕" : "☰"}
-        </div>
-      ) : (
+      {/* Desktop Navigation */}
+      {!isMobile ? (
         <motion.nav
-          className="hidden md:flex items-center flex-wrap gap-2 md:gap-6 text-sm font-normal"
+          className="hidden md:flex items-center gap-6 text-sm font-normal"
           initial="hidden"
           animate="visible"
         >
@@ -120,7 +84,7 @@ export const Header = () => {
               <HashLink
                 smooth
                 to={`/#${id}`}
-                className="text-white font-normal hover:text-red-500 transition"
+                className="text-white hover:text-red-500 transition"
               >
                 {label.toUpperCase()}
               </HashLink>
@@ -130,12 +94,13 @@ export const Header = () => {
           <motion.div custom={navLinks.length} variants={navItemVariants}>
             <HashLink
               to="/media"
-              className="text-white font-normal text-sm hover:text-red-500 transition"
+              className="text-white text-sm hover:text-red-500 transition"
             >
               NEWS
             </HashLink>
           </motion.div>
 
+          {/* Get In Touch Dropdown */}
           <motion.div
             custom={navLinks.length + 1}
             variants={navItemVariants}
@@ -187,27 +152,36 @@ export const Header = () => {
                 >
                   <span className="font-semibold">For Institutions</span>
                 </a>
-                <a
-                  className="block px-4 py-3 text-white hover:bg-red-700/20 hover:text-red-600 rounded-lg transition cursor-pointer"
-                  onClick={() => {
-                    setShowContact(true);
-                    setGetInTouchOpen(false);
-                  }}
-                >
-                  Contact Us
-                </a>
               </div>
             )}
           </motion.div>
 
+          {/* Contact Button */}
           <motion.div custom={navLinks.length + 2} variants={navItemVariants}>
-            <PrimaryButton to="/create-account">Get Started</PrimaryButton>
+            <PrimaryButton
+              onClick={() => {
+                setShowContact(true);
+                setGetInTouchOpen(false);
+              }}
+              className="focus:outline-none hover:outline-none"
+            >
+              contact us
+            </PrimaryButton>
           </motion.div>
         </motion.nav>
+      ) : (
+        // Mobile Menu Toggle
+        <div
+          className="text-white text-3xl cursor-pointer"
+          onClick={() => setMenuOpen((prev) => !prev)}
+        >
+          {menuOpen ? "✕" : "☰"}
+        </div>
       )}
 
+      {/* Mobile Menu */}
       {isMobile && menuOpen && (
-        <div className="absolute top-full right-0 w-64 bg-red-900 text-white flex flex-col gap-1 px-4 py-4 z-20 rounded-bl-md">
+        <div className="absolute top-full right-0 w-64 bg-red-900 text-white flex flex-col gap-2 px-4 py-4 z-50 rounded-bl-xl">
           {navLinks.map(({ id, label }) => (
             <HashLink
               smooth
@@ -226,14 +200,23 @@ export const Header = () => {
           >
             News
           </HashLink>
+          <button
+            onClick={() => {
+              setShowContact(true);
+              setMenuOpen(false);
+            }}
+            className="mt-2 text-sm border border-red-500 hover:bg-red-700 rounded-lg px-4 py-2"
+          >
+            Contact Us
+          </button>
         </div>
       )}
 
+      {/* Contact Modal */}
       <Contact isOpen={showContact} onClose={() => setShowContact(false)} />
     </header>
   );
 };
-
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -273,7 +256,7 @@ export const Footer = () => {
             <img
               src={LogoFooter}
               alt="GRC Logo"
-              className="w-24 h-24 lg:w-full lg:h-32 object-contain drop-shadow-lg"
+              className="w-24 h-24 lg:w-36 lg:h-28 drop-shadow-lg"
             />
             {/* <span className="text-2xl lg:text-2xl font-bold tracking-tight">
             GET<span className="text-red-500">REDD</span>
@@ -384,43 +367,43 @@ export const Footer = () => {
             <nav className="space-y-2 flex flex-col">
               <HashLink
                 smooth
-                to="/#home"
+                to="/home"
                 className="text-white hover:text-red-500"
               >
                 Home
               </HashLink>
               <HashLink
                 smooth
-                to="/#about"
+                to="/about"
                 className="text-white hover:text-red-500"
               >
                 About
               </HashLink>
               <HashLink
                 smooth
-                to="/#services"
+                to="/services"
                 className="text-white hover:text-red-500"
               >
                 Services
               </HashLink>
-                <HashLink
+              <HashLink
                 smooth
                 to="/media"
                 className="text-white hover:text-red-500"
               >
                 News
               </HashLink>
-             
-            {/* <HashLink
+
+              {/* <HashLink
               to="/media"
               className="text-white font-normal text-sm hover:text-red-500 transition"
             >
               NEWS
             </HashLink> */}
-         
+
               <HashLink
                 smooth
-                to="/#blog"
+                to="/blog"
                 className="text-white hover:text-red-500"
               >
                 Leadership

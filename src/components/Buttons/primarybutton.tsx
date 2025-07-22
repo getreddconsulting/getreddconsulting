@@ -33,7 +33,15 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   );
 
   const buttonContent = (
-    <span className={`primary-button ${className}`}>
+    <span
+      className={`primary-button ${className}`}
+      style={{
+        outline: "none",
+        border: "none",
+        boxShadow: "none",
+        WebkitTapHighlightColor: "transparent",
+      }}
+    >
       <span></span>
       <span></span>
       <span></span>
@@ -42,20 +50,26 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
     </span>
   );
 
-  // ✅ Support internal navigation via Link
   if (to) {
     return <Link to={to}>{buttonContent}</Link>;
   }
 
   if (href) {
     return (
-      <a href={href} target={target} rel={rel}>
+      <a href={href} target={target} rel={rel} style={{ outline: "none" }}>
         {buttonContent}
       </a>
     );
   }
 
-  return <button onClick={onClick}>{buttonContent}</button>;
+  return (
+    <button
+      onClick={onClick}
+      style={{ outline: "none", border: "none" }}
+    >
+      {buttonContent}
+    </button>
+  );
 };
 
 export default PrimaryButton;

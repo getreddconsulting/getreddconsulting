@@ -133,7 +133,7 @@ const ServiceCards = () => {
             animate={visible ? { opacity: 1, x: 0 } : { opacity: 0, x: -60 }}
             transition={{ duration: 1.5, ease: [0.4, 0, 0.2, 1] }}
           >
-            <img src={GetReddLogo} alt="GetRedd Logo" className="w-40 sm:w-48 mb-4 drop-shadow-xl" />
+            {/* <img src={GetReddLogo} alt="GetRedd Logo" className="w-40 sm:w-48 mb-4 drop-shadow-xl" /> */}
             <h2 className="text-3xl sm:text-4xl font-semibold text-red-500 mb-4">
               Specialized Services
             </h2>

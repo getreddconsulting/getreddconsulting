@@ -130,7 +130,7 @@ const MediaGallery: React.FC<MediaGalleryProps> = ({
               {/* Close Button */}
              {/* Close Button */}
 <button
-  className="absolute top-2 right-2 text-black hover:text-red-500 bg-transparent text-4xl  border-none"
+  className="absolute -top-6 -right-10 text-gray-700 hover:text-red-500 bg-transparent text-4xl  border-none"
   onClick={() => setSelectedItem(null)}
   aria-label="Close gallery"
 >
@@ -139,24 +139,49 @@ const MediaGallery: React.FC<MediaGalleryProps> = ({
 
 {/* Navigation Arrows */}
 
+{/* Desktop Arrows – Positioned outside the image */}
 {currentIndex > 0 && (
   <button
-    className="fixed left-[10%] top-1/2 transform -translate-y-1/2 text-gray-300 hover:text-red-500 text-2xl lg:text-5xl z-[100] bg-transparent hover:border-red-600 transition-colors"
+    className="hidden sm:block fixed left-[10%] top-1/2 transform -translate-y-1/2 text-gray-300 hover:text-red-500 text-2xl lg:text-5xl z-[100] bg-transparent hover:border-red-600 transition-colors"
     onClick={goToPrevious}
     aria-label="Previous media"
   >
     ‹
   </button>
 )}
+
 {currentIndex < mediaItems.length - 1 && (
   <button
-    className="fixed right-[10%] top-1/2 transform -translate-y-1/2 text-gray-300 hover:text-red-500 text-2xl lg:text-5xl z-[100]  bg-transparent hover:border-red-600 transition-colors"
+    className="hidden sm:block fixed right-[10%] top-1/2 transform -translate-y-1/2 text-red-900 hover:text-red-500 text-2xl lg:text-5xl z-[100] bg-transparent hover:border-red-600 transition-colors"
     onClick={goToNext}
     aria-label="Next media"
   >
     ›
   </button>
 )}
+
+{/* Mobile Arrows – Positioned inside the white card container */}
+{currentIndex > 0 && (
+  <button
+    className="block sm:hidden absolute bottom-4 left-0 text-red-600 hover:text-red-500 text-3xl bg-white p-1 px-2 rounded-lg shadow-md z-10"
+    onClick={goToPrevious}
+    aria-label="Previous media"
+  >
+    ‹
+  </button>
+)}
+
+{currentIndex < mediaItems.length - 1 && (
+  <button
+    className="block sm:hidden absolute bottom-4 right-0 text-red-600 hover:text-red-500 text-3xl bg-white p-1 px-2 rounded-lg shadow-md z-10"
+    onClick={goToNext}
+    aria-label="Next media"
+  >
+    ›
+  </button>
+)}
+
+
 
 
 

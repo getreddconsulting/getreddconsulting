@@ -7,49 +7,82 @@ import heroBg from "../assets/GRC_Elements/Gray_Texture_bkgd.jpg";
 import { useEffect, useRef, useState } from "react";
 import heroVideo from "../assets/video/3249940-uhd_3840_2160_25fps.mp4";
 import PrimaryButton from "../components/Buttons/primarybutton";
+import { useLocation } from "react-router-dom";
+
+// import MainPage from "../App.tsx"
+// import AboutUs from "./AboutUs";
+// import Services from "../components/ServiceCards";
+// import OurApproach from "./OurApproach";
+// import BlogOrLeadership from "../components/Leadership/BlogOrLeadership";
+// import GetReddAcronyms from "../components/Acronym/GetReddAcronyms";
+// import CompetitiveAdvantage from "../components/CompetitiveAdvantage.tsx";
+// import ConsultingHighlights from "../components/CompetitiveAdvantage.tsx";
+// import Contact from "../components/CallToAction";
 // import { lockScroll, unlockScroll } from "../utils/scrollLock"; // adjust path if needed
 
 const Home = () => {
-  const [showOrigamiHero, setShowOrigamiHero] = useState(true);
+    const location = useLocation();
+  const hasHash = !!location.hash; 
+const [showOrigamiHero, setShowOrigamiHero] = useState(!hasHash);
   const [showHeroContent, setShowHeroContent] = useState(false);
   const [scrollLockActive, setScrollLockActive] = useState(true);
   const sliderRef = useRef<HTMLDivElement>(null);
   const headingControls = useAnimation();
 
+
   useScrollLock(scrollLockActive);
 
-  useEffect(() => {
-    if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "manual";
+useEffect(() => {
+  if ("scrollRestoration" in window.history) {
+    window.history.scrollRestoration = "manual";
+  }
+
+  window.scrollTo({ top: 0, behavior: "auto" });
+
+  if (hasHash) {
+    // Skip animation and transition
+    setShowOrigamiHero(false);
+    setShowHeroContent(true);
+    headingControls.start("visible");
+    setScrollLockActive(false);
+    return;
+  }
+
+  const timer = setTimeout(() => {
+    setShowOrigamiHero(false);
+    if (showOrigamiHero === true) {
+      sessionStorage.setItem("origamiHeroShown", "true");
     }
 
-    window.scrollTo({ top: 0, behavior: "auto" }); // ✅ Force scroll to top on mount
+    const contentTimer = setTimeout(() => {
+      setShowHeroContent(true);
+      headingControls.start("visible");
+      setScrollLockActive(false);
+    }, 600);
 
-    const timer = setTimeout(() => {
-      setShowOrigamiHero(false);
-      console.log({ showOrigamiHero });
-      if (showOrigamiHero === true) {
-        sessionStorage.setItem("origamiHeroShown", "true");
-      }
+    return () => clearTimeout(contentTimer);
+  }, 3000);
 
-      const contentTimer = setTimeout(() => {
-        setShowHeroContent(true);
-        headingControls.start("visible");
-        setScrollLockActive(false);
-      }, 600);
+  return () => {
+    clearTimeout(timer);
+  };
+}, [headingControls, hasHash]);
 
-      return () => clearTimeout(contentTimer);
-    }, 3000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [headingControls]);
+ useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const element = document.querySelector(location.hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100); // Delay ensures DOM is ready
+    }
+  }, [location]);
 
   
   return (
-    <div
-      id="home"
+ <div
+      id="hero"
       className="w-full  flex flex-col overflow-x-hidden relative bg-black"
     >
       {/* Header: always fixed at the top, above all hero sections */}
@@ -271,6 +304,8 @@ const Home = () => {
             </div>
           </div>
         </section>
+        {/* <MainPage /> */}
+        {/* <MainPage /> */}
         {/* About Us Section */}
         {/* <AboutUs /> */}
         {/* Our Approach Section */}

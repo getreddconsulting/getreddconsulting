@@ -68,19 +68,21 @@ const ChallengesPanel: React.FC = () => {
     <section className="w-full h-full min-h-screen bg-white p-0 m-0 relative overflow-hidden">
       {/* 📷 Background image */}
       <img
-        src={BenjaminBg}
-        alt="Background"
-        className="absolute inset-0 w-full h-full opacity-100 object-cover object-center z-0 hidden md:block"
-        draggable={false}
-      />
+  src={BenjaminBg}
+  alt="Background"
+  className="absolute inset-0 w-full h-[75vh] max-h-[80vh] md:max-h-screen object-cover object-center z-0 hidden md:block short:hidden"
+  draggable={false}
+/>
+
+
 
       {/* 🏷️ Challenges Title */}
-      <h1 className="absolute top-6 left-1/2 transform -translate-x-1/2 text-3xl md:text-7xl font-semibold text-black z-30 text-center md:top-1/2 md:left-[-13%] md:translate-x-1/2 md:-translate-y-1/2">
+      <h1 className="absolute top-6 left-1/2 transform -translate-x-1/2 text-3xl md:text-7xl font-semibold text-black z-30 text-center md:top-[35%] md:left-[-15%] md:translate-x-1/2 md:-translate-y-1/2">
         Challenges
       </h1>
 
       {/* 🔴 Horizontal Line + Icon for Desktop */}
-      <div className="absolute left-0 right-0 items-end hidden md:flex" style={{ bottom: "341px" }}>
+      <div className="absolute left-0 right-0 items-end hidden md:flex" style={{ bottom: "450px" }}>
         <div
           ref={lineRef}
           className="relative mx-auto w-full max-w-6xl h-0.5 z-20 bg-red-600"
@@ -124,9 +126,9 @@ const ChallengesPanel: React.FC = () => {
       </div>
 
       {/* 🔻 Bottom Content Panel */}
-      <div className="w-full px-2 lg:px-0 z-20 md:absolute md:left-0 md:right-0 md:bottom-0">
-  <div className="w-full mx-auto pt-16 md:pt-0 pb-10 px-4 lg:px-2">
-    <div className="flex flex-col md:flex-row gap-6 w-[min(100%,1440px)] mx-auto px-4">
+      <div className=" w-full px-2 lg:px-0 z-20 md:absolute md:left-0 md:right-0 md:bottom-0">
+  <div className="w-full mx-auto pt-10 md:pt-1 lg:pb-32 px-4 lg:px-2">
+    <div className="flex flex-col md:flex-row gap-6 w-[min(100%,1440px)] mx-auto px-4 ">
             {columns.map((col, i) => (
               <motion.div
                 key={i}
@@ -134,7 +136,7 @@ const ChallengesPanel: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: i * 0.2 }}
                 viewport={{ once: true, amount: 0.2 }}
-                className={`flex-1 min-w-[250px] px-2 py-4 rounded-md ${
+                className={`flex-1 min-w-[200px] px-2 py-4 rounded-md ${
                   i === 0 ? "bg-white md:bg-transparent" : ""
                 } ${col.border ? "border-l-2 md:border-l-2 md:border-red-500" : ""}`}
               >

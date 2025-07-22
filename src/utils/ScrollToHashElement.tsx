@@ -1,4 +1,3 @@
-// utils/ScrollToHashElement.tsx
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -8,15 +7,17 @@ function ScrollToHashElement() {
   useEffect(() => {
     if (!hash) return;
 
+    const id = hash.replace("#", "");
+    let attempts = 0;
+
     const scrollToElement = () => {
-      const id = hash.replace("#", "");
       const element = document.getElementById(id);
 
       if (element) {
         element.scrollIntoView({ behavior: "smooth", block: "start" });
-      } else {
-        // Try again in 100ms (in case the DOM isn't ready)
-        setTimeout(scrollToElement, 100);
+      } else if (attempts < 20) {
+        attempts += 1;
+        setTimeout(scrollToElement, 100); // Retry every 100ms
       }
     };
 

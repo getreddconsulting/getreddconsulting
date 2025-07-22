@@ -183,7 +183,7 @@ button:focus-visible {
     color: #747bff;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: transparent;
   }
 }
 @layer utilities {
@@ -222,4 +222,32 @@ button:focus-visible {
 
 .animate-glow {
   animation: glowMove 2s infinite ease-in-out;
+}
+@layer utilities {
+  @media (max-height: 600px) {
+    .max-h-600\:top-2 {
+      top: 0.5rem;
+    }
+    .max-h-600\:text-2xl {
+      font-size: 1.5rem;
+    }
+  }
+}
+/* src/styles/global.css */
+
+.getreddText {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #ec1c24, #8b0000);
+ background-clip: text;               /* ← Standard version */
+  -webkit-background-clip: text;    
+  -webkit-text-fill-color: transparent;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  box-shadow: 0 0 0px 1000px white inset !important;
+  -webkit-text-fill-color: #1f2937 !important; /* Tailwind gray-800 */
 }

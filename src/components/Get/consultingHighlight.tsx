@@ -160,7 +160,7 @@ const renderExpandedView = (data: SectionData, type: "business" | "finance") => 
     <div className="w-full h-full">
       {activeCard === type ? renderExpandedView(data, type) : (
         <div className="bg-white shadow-lg h-[480px] flex flex-col ">
-          <div className="h-[60vh] w-full">
+          <div className="w-full max-h-64 md:h-[60vh] overflow-hidden">
             <img src={data.image} alt={data.title} className="w-full h-full object-cover" />
           </div>
           <div className="p-4 flex flex-col flex-grow justify-between">
