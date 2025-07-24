@@ -29,10 +29,10 @@ const Articles: React.FC = () => {
           <img
             src={article.image}
             alt={article.title}
-            className="w-full h-48 object-bottom"
+            className="w-full h-48 object-bottom "
           />
           <div className="p-4">
-            <h3 className="text-xl font-semibold">{article.title}</h3>
+            <h3 className="text-xl text-red-600 font-semibold">{article.title}</h3>
             <p className="text-gray-600 text-sm mt-2 line-clamp-3">{article.description}</p>
           </div>
         </a>

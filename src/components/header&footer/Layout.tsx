@@ -38,12 +38,14 @@ export const Header = () => {
   }, []);
 
   useEffect(() => {
+if (isMediaPage) return;
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isMediaPage]);
 
   const navLinks = [
     { id: "home", label: "Home" },
@@ -52,11 +54,13 @@ export const Header = () => {
     { id: "blog", label: "Leadership" },
   ];
 
-  const headerClass = `fixed top-0 w-full z-50 transition-all duration-300 px-6 py-3 lg:py-2 flex items-center justify-between ${
-    isMediaPage || scrolled
-      ? "bg-gradient-to-b from-gray-900 to-gray-500 backdrop-blur-lg shadow-md h-20"
-      : "bg-transparent"
-  }`;
+const headerClass = `${
+  isMediaPage ? "absolute top-0 left-0 z-50" : "fixed top-0 z-50"
+} w-full transition-all duration-300 px-2 lg:px-6 py-1 lg:py-3 lg:py-2 flex items-center justify-between ${
+  scrolled ? "bg-gradient-to-b from-gray-900 to-gray-500 backdrop-blur-lg shadow-md h-20" : "bg-transparent"
+}`;
+
+
 
   return (
     <header className={headerClass}>
@@ -66,7 +70,7 @@ export const Header = () => {
   src={LogoFooter}
   alt="Logo"
   className={`transition-all duration-300 ease-in-out drop-shadow-lg ${
-    scrolled ? "h-20 w-32" : "h-20 w-32 lg:h-28 lg:w-40"
+    scrolled ? "h-20 w-32" : "h-20 w-32 lg:h-28 lg:w-40 mt-4"
   }`}
 />
 
@@ -367,21 +371,21 @@ export const Footer = () => {
             <nav className="space-y-2 flex flex-col">
               <HashLink
                 smooth
-                to="/home"
+                to="/#home"
                 className="text-white hover:text-red-500"
               >
                 Home
               </HashLink>
               <HashLink
                 smooth
-                to="/about"
+                to="/#about"
                 className="text-white hover:text-red-500"
               >
                 About
               </HashLink>
               <HashLink
                 smooth
-                to="/services"
+                to="/#services"
                 className="text-white hover:text-red-500"
               >
                 Services
@@ -403,7 +407,7 @@ export const Footer = () => {
 
               <HashLink
                 smooth
-                to="/blog"
+                to="/#blog"
                 className="text-white hover:text-red-500"
               >
                 Leadership

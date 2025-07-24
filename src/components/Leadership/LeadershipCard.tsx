@@ -36,13 +36,13 @@ const LeadershipCard = ({ onReadMore }: { onReadMore: () => void }) => (
           </div>
         </div>
         {/* Right: Content */}
-        <div className="flex-1 flex flex-col justify-center items-start">
+        <div className="flex-1 flex flex-col justify-center  lg:items-start">
           <div className="flex items-center mb-2">
             <h2 className="text-4xl font-bold text-black mr-2">
               The <span className="text-red-700">Expert</span>
             </h2>
           </div>
-          <div className="flex flex-col items-start gap-2 mb-2">
+          <div className="flex flex-col lg:items-start gap-2 mb-2">
             <span className="font-bold text-lg text-gray-900">
               Liudmila Esquerdo,
             </span>

@@ -8,7 +8,7 @@ const NewsletterGallery: React.FC = () => (
     {mediaData.newsletters.map((n, i) => (
       <div
         key={i}
-        className={`flex flex-col md:flex-row ${i % 2 !== 0 ? "md:flex-row-reverse" : ""} gap-6`}
+        className={`flex flex-col md:flex-row ${i % 2 !== 0 ? "md:flex-row-reverse" : ""} gap-6 `}
       >
         <img
           src={n.img}

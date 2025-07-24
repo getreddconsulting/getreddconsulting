@@ -159,11 +159,11 @@ const renderExpandedView = (data: SectionData, type: "business" | "finance") => 
   const renderCard = (data: SectionData, type: "business" | "finance") => (
     <div className="w-full h-full">
       {activeCard === type ? renderExpandedView(data, type) : (
-        <div className="bg-white shadow-lg h-[480px] flex flex-col ">
-          <div className="w-full max-h-64 md:h-[60vh] overflow-hidden">
-            <img src={data.image} alt={data.title} className="w-full h-full object-cover" />
+        <div className="bg-white shadow-lg w-full h-auto flex flex-col ">
+          <div className="w-full h-96  overflow-hidden">
+            <img src={data.image} alt={data.title} className="w-full  h-full" />
           </div>
-          <div className="p-4 flex flex-col flex-grow justify-between">
+          <div className="p-4 flex flex-col flex-grow justify-end">
             <h3 className="text-xl font-semibold text-[#b71c1c]">{data.title}</h3>
             <p className="text-sm text-gray-700 mb-4">{data.summary}</p>
             <button
@@ -179,7 +179,7 @@ const renderExpandedView = (data: SectionData, type: "business" | "finance") => 
   );
 
   return (
-    <div className="min-h-screen bg-white px-4 py-10">
+    <div className="min-h-px bg-[#f4f8fc] px-4 py-10">
       <div className="flex flex-col md:flex-row gap-6 h-full">
         <div className="w-full md:w-1/2">{renderCard(businessData, "business")}</div>
         <div className="w-full md:w-1/2">{renderCard(financeData, "finance")}</div>

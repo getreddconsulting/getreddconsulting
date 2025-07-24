@@ -91,7 +91,7 @@ export const mediaData = {
 
   newsletters: [
    {
-    title: "",
+    title: "NEWSLETTER",
     content: "",
     img: "/media/Article/article_2.jpg",
   },

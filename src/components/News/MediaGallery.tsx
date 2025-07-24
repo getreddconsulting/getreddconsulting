@@ -58,7 +58,7 @@ const MediaGallery: React.FC<MediaGalleryProps> = ({
   return (
     <div className="fixed inset-0 bg-black bg-opacity-90 z-50 p-6 overflow-y-auto">
       <button
-        className="absolute top-0 right-0 text-gray text-4xl font-medium hover:text-red-500 z-50  border-none p-2"
+        className="absolute top-0 right-0 text-gray text-4xl font-medium hover:text-red-500 z-50   p-2 focus:outline-none focus:ring-0 border-none"
         onClick={onClose}
       >
         &times;
@@ -130,7 +130,7 @@ const MediaGallery: React.FC<MediaGalleryProps> = ({
               {/* Close Button */}
              {/* Close Button */}
 <button
-  className="absolute -top-6 -right-10 text-gray-700 hover:text-red-500 bg-transparent text-4xl  border-none"
+  className="absolute -top-6 -right-10 text-gray-700 hover:text-red-500 bg-transparent text-4xl focus:outline-none focus:ring-0 border-none"
   onClick={() => setSelectedItem(null)}
   aria-label="Close gallery"
 >
@@ -142,7 +142,7 @@ const MediaGallery: React.FC<MediaGalleryProps> = ({
 {/* Desktop Arrows – Positioned outside the image */}
 {currentIndex > 0 && (
   <button
-    className="hidden sm:block fixed left-[10%] top-1/2 transform -translate-y-1/2 text-gray-300 hover:text-red-500 text-2xl lg:text-5xl z-[100] bg-transparent hover:border-red-600 transition-colors"
+    className="hidden sm:block fixed left-[10%] top-1/2 transform -translate-y-1/2 text-gray-300 hover:text-red-500 text-2xl lg:text-5xl z-[100] bg-transparent hover:border-red-600 transition-colors  focus:outline-none focus:ring-0 border-none"
     onClick={goToPrevious}
     aria-label="Previous media"
   >
@@ -152,7 +152,7 @@ const MediaGallery: React.FC<MediaGalleryProps> = ({
 
 {currentIndex < mediaItems.length - 1 && (
   <button
-    className="hidden sm:block fixed right-[10%] top-1/2 transform -translate-y-1/2 text-red-900 hover:text-red-500 text-2xl lg:text-5xl z-[100] bg-transparent hover:border-red-600 transition-colors"
+    className="hidden sm:block fixed right-[10%] top-1/2 transform -translate-y-1/2 text-gray-300 hover:text-red-500 text-2xl lg:text-5xl z-[100] bg-transparent hover:border-none transition-colors focus:outline-none focus:ring-0 border-none"
     onClick={goToNext}
     aria-label="Next media"
   >
@@ -163,7 +163,7 @@ const MediaGallery: React.FC<MediaGalleryProps> = ({
 {/* Mobile Arrows – Positioned inside the white card container */}
 {currentIndex > 0 && (
   <button
-    className="block sm:hidden absolute bottom-4 left-0 text-red-600 hover:text-red-500 text-3xl bg-white p-1 px-2 rounded-lg shadow-md z-10"
+    className="block sm:hidden absolute bottom-4 left-0 text-red-600 hover:text-red-500 text-3xl bg-white p-1 px-2 rounded-lg shadow-md z-10 focus:outline-none focus:ring-0 border-none"
     onClick={goToPrevious}
     aria-label="Previous media"
   >
@@ -173,7 +173,7 @@ const MediaGallery: React.FC<MediaGalleryProps> = ({
 
 {currentIndex < mediaItems.length - 1 && (
   <button
-    className="block sm:hidden absolute bottom-4 right-0 text-red-600 hover:text-red-500 text-3xl bg-white p-1 px-2 rounded-lg shadow-md z-10"
+    className="block sm:hidden absolute bottom-4 right-0 text-red-600 hover:text-red-500 text-3xl bg-white p-1 px-2 rounded-lg shadow-md z-10 focus:outline-none focus:ring-0 border-none"
     onClick={goToNext}
     aria-label="Next media"
   >

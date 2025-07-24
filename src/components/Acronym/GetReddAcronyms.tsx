@@ -99,7 +99,7 @@ const GetReddAcronymBar: React.FC = () => {
           writingMode: "vertical-rl",
           textOrientation: "upright",
           padding: "0.5rem",
-          fontSize: isMobile ? "0.55rem" : isTablet ? "0.7rem" : "0.9rem",
+          fontSize: isMobile ? "1.25rem" : isTablet ? "0.7rem" : "0.9rem",
           lineHeight: "1.6rem",
         }}
       >
@@ -118,7 +118,7 @@ const GetReddAcronymBar: React.FC = () => {
           {ACRONYMS.map(({ letter, word }, index) => (
             <motion.div
               key={index}
-              className={`flex ${isMobile ? "items-baseline" : "items-end"}`}
+              className={`flex ${isMobile ? "items-baseline" : "items-baseline"}`}
               variants={itemVariants}
             >
               <span

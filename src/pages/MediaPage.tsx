@@ -18,7 +18,7 @@ interface MediaEvent {
 }
 
 const MediaPage: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<"events" | "newsletters" | "articles">("events");
+const [activeTab, setActiveTab] = useState<TabType>("events");
   const [mediaItems, setMediaItems] = useState<string[]>([]);
   const [selectedEvent, setSelectedEvent] = useState<MediaEvent | null>(null);
   // const [showHighlights, setShowHighlights] = useState(false);
@@ -26,6 +26,10 @@ const MediaPage: React.FC = () => {
 
   const [showGallery, setShowGallery] = useState(false);
   const [isGalleryClosing, setIsGalleryClosing] = useState(false);
+
+
+const tabs = ["events", "newsletters", "articles"] as const;
+type TabType = typeof tabs[number];
 
   // const highlightsRef = useRef<HTMLDivElement>(null); // ref for scrolling
 
@@ -82,60 +86,45 @@ const renderCards = () => {
 
 
  return (
-  <div className="text-gray-900 relative pt-20">
+  <div className="text-gray-900 relative ">
     {/* ✅ Hero Section */}
     <div
       className="relative bg-cover bg-center text-white flex items-center justify-center"
       style={{
         backgroundImage: `url(${bgImage})`,
-        height: "40vh",
+        height: "50vh",
       }}
     >
-      <div className=" p-6 rounded-lg text-center max-w-xl">
-        <h1 className="text-5xl font-bold mb-4">MEDIA</h1>
-        <h3 className="text-xl font-medium mb-2">Explore our Highlights</h3>
-        <p className="text-sm mb-6">
-          Discover events, newsletters, and articles from the GetRedd team.
-        </p>
+      <div className="p-6 rounded-lg text-center max-w-xl pt-32">
+  <h1 className="text-5xl font-bold mb-4 relative shiny-text">MEDIA</h1>
+  <h3 className="text-xl font-medium mb-2 relative shimmer-text">Explore our Highlights</h3>
+  <p className="text-base mb-6 relative shimmer-text">
+    From impactful events to insightful articles and the latest newsletters that shape our journey.
+  </p>
 
-        {/* ✅ Tab Buttons */}
-        <div className="flex lg:flex-wrap justify-center gap-2 lg:gap-4">
-          <button
-            className={`px-6 py-2 rounded-md font-semibold transition ${
-              activeTab === "events"
-                ? "bg-red-600 text-white"
-                : "bg-white text-red-600"
-            }`}
-            onClick={() => setActiveTab("events")}
-          >
-            Events
-          </button>
-          <button
-            className={`px-6 py-2 rounded-md font-semibold transition ${
-              activeTab === "newsletters"
-                ? "bg-red-600 text-white"
-                : "bg-white text-red-600"
-            }`}
-            onClick={() => setActiveTab("newsletters")}
-          >
-            Newsletters
-          </button>
-          <button
-            className={`px-6 py-2 rounded-md font-semibold transition ${
-              activeTab === "articles"
-                ? "bg-red-600 text-white "
-                : "bg-white text-red-600"
-            }`}
-            onClick={() => setActiveTab("articles")}
-          >
-            Articles
-          </button>
-        </div>
-      </div>
+  {/* ✅ Tab Buttons */}
+  <div className="flex lg:flex-wrap justify-center gap-2 lg:gap-4">
+    {tabs.map((tab) => (
+      <button
+        key={tab}
+        onClick={() => setActiveTab(tab)}
+        className={`relative px-6 py-2 rounded-md font-semibold transition-all duration-300 ease-in-out transform focus:outline-none
+          ${
+            activeTab === tab
+              ? "bg-red-600 text-white scale-105 shadow-lg shadow-red-400/50 shimmer"
+              : "bg-white text-red-600 hover:scale-105 hover:shadow-md"
+          }`}
+      >
+        {tab.charAt(0).toUpperCase() + tab.slice(1)}
+      </button>
+    ))}
+  </div>
+</div>
+
     </div>
 
     {/* ✅ Dynamic Content Section */}
-    <div className="px-4 py-12 bg-white">
+    <div className="px-4 py-12 bg-white ">
       {renderCards()}
     </div>
 

@@ -26,7 +26,7 @@ const EventCard: React.FC<EventCardProps> = ({
       initial={{ rotateY: 90, opacity: 0 }}
       animate={{ rotateY: 0, opacity: 1 }}
       transition={{ delay: index * 0.15, duration: 0.6 }}
-      className="bg-white border border-gray-200 shadow hover:shadow-lg cursor-pointer overflow-hidden w-full max-w-sm"
+      className="bg-white border border-red-600 shadow hover:shadow-lg cursor-pointer overflow-hidden w-full max-w-sm"
       onClick={onClick}
       whileHover={{ scale: 1.03 }}
     >

@@ -175,7 +175,7 @@ useEffect(() => {
             /> */}
 
             <motion.h1
-              className="text-xl  md:text-3xl lg:text-5xl font-black text-white mb-6 drop-shadow-lg leading-tight"
+              className="text-xl  md:text-3xl lg:text-5xl font-black text-white mb-2 lg:mb-6 mt-32 lg:mt-16 drop-shadow-lg leading-tight"
               initial="hidden"
               animate={headingControls}
               variants={{

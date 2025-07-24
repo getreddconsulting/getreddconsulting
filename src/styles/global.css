@@ -1,3 +1,4 @@
+
 /* Neon Animated Border Button */
 
 .primary-button {
@@ -188,4 +189,72 @@
   overflow: hidden;
   height: 100vh;
   touch-action: none;
+}
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: shimmerAnim 2s infinite;
+  z-index: 1;
+}
+
+.shimmer span {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes shimmerAnim {
+  0% {
+    left: -75%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+@keyframes shine {
+  0% {
+    background-position: -200%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
+
+.shiny-text {
+  font-size: 4rem;
+  font-family: 'Orbitron', sans-serif; /* futuristic font */
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ccc;
+  background: linear-gradient(
+    120deg,
+    #ffffff 20%,
+    #ffefc5 30%,
+    #ffffff 40%,
+    #999999 60%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  animation: shine 3s linear infinite;
 }
