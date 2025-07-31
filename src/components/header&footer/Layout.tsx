@@ -13,7 +13,7 @@ const navItemVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.15 * i,
+      delay: 4 + 0.15 * i,
       duration: 0.4,
       ease: [0.42, 0, 0.58, 1],
     },
@@ -28,6 +28,19 @@ export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 950);
+  const [isLeadershipModalOpen, setIsLeadershipModalOpen] = useState(false);
+
+useEffect(() => {
+  const handleLeadershipModalToggle = (e: CustomEvent) => {
+    setIsLeadershipModalOpen(e.detail.open);
+  };
+
+  window.addEventListener("leadershipModalToggle", handleLeadershipModalToggle as EventListener);
+
+  return () => {
+    window.removeEventListener("leadershipModalToggle", handleLeadershipModalToggle as EventListener);
+  };
+}, []);
 
   const isMediaPage = location.pathname === "/media";
 
@@ -55,9 +68,11 @@ if (isMediaPage) return;
   ];
 
 const headerClass = `${
-  isMediaPage ? "absolute top-0 left-0 z-50" : "fixed top-0 z-50"
-} w-full transition-all duration-300 px-2 lg:px-6 py-1 lg:py-3 lg:py-2 flex items-center justify-between ${
-  scrolled ? "bg-gradient-to-b from-gray-900 to-gray-500 backdrop-blur-lg shadow-md h-20" : "bg-transparent"
+  isMediaPage ? "absolute top-0 left-0" : "fixed top-0"
+} ${isLeadershipModalOpen ? "z-10" : "z-40"} w-full transition-all duration-300 px-2 lg:px-6 py-1 lg:py-3 lg:py-2 flex items-center justify-between ${
+  scrolled
+    ? "bg-gradient-to-b from-gray-900 to-gray-500 backdrop-blur-lg shadow-md h-20"
+    : "bg-transparent"
 }`;
 
 

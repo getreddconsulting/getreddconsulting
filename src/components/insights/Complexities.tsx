@@ -33,7 +33,7 @@ const Complexities = () => {
       <img
         src={Logo}
         alt="GETREDD Logo"
-        className="absolute top-20 -left-20  w-[40%] z-10 select-none"
+        className="absolute top-20 -left-20 w-[70%] lg:w-[40%] z-10 select-none"
       />
 
       {/* Circle behind text */}

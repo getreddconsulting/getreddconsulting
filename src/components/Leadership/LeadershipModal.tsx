@@ -27,7 +27,7 @@ const LeadershipModal: React.FC<LeadershipModalProps> = ({ onClose }) => {
 
   return (
     <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center overflow-hidden">
-      <div className="relative max-w-6xl w-full max-h-[90vh] bg-white rounded-2xl shadow-2xl p-6 md:p-10 flex flex-col md:flex-row gap-6 overflow-hidden">
+      <div className="relative z-50 max-w-6xl w-full max-h-[90vh] bg-white rounded-2xl shadow-2xl p-6 md:p-10 flex flex-col md:flex-row gap-6 overflow-hidden">
         {/* ❌ Close Button */}
         <button
           className="absolute -top-3 -right-3 text-2xl font-bold text-gray-600 hover:text-red-700 z-50 bg-transparent outline-none focus:outline-none focus:ring-0 border-none"

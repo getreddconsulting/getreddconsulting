@@ -16,12 +16,19 @@ const ACRONYMS = [
 const GetReddAcronymBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [shouldRender, setShouldRender] = useState(false); // NEW
   const location = useLocation();
   const barRef = useRef<HTMLDivElement>(null);
 
   const isMobile = screenWidth <= 768;
   const isTablet = screenWidth > 768 && screenWidth <= 1024;
   const isHome = location.pathname === "/" || location.pathname === "/home";
+
+  // Delay mount by 3 seconds (same as hero animation)
+  useEffect(() => {
+    const delay = setTimeout(() => setShouldRender(true), 3000);
+    return () => clearTimeout(delay);
+  }, []);
 
   useEffect(() => {
     const handleResize = () => setScreenWidth(window.innerWidth);
@@ -74,14 +81,17 @@ const GetReddAcronymBar: React.FC = () => {
     },
   };
 
+  // ⛔ Prevent premature render
+  if (!shouldRender) return null;
+
   return (
     <motion.div
       ref={barRef}
-      className="fixed left-0 top-1/3 z-50 flex items-center lg:items-start overflow-hidden shadow-md"
+      className="fixed left-0 top-1/3 z-20 flex items-center lg:items-start overflow-hidden shadow-md"
       animate={{ width: isOpen ? "fit-content" : "3rem", opacity }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       style={{
-        backgroundColor: " rgba(243,244,246,0.9)",
+        backgroundColor: "rgba(243,244,246,0.9)",
         cursor: "pointer",
         color: "white",
         fontWeight: "bold",
@@ -108,7 +118,7 @@ const GetReddAcronymBar: React.FC = () => {
 
       {isOpen && (
         <motion.div
-          className={`px-4 py-2 h-full  text-gray-600 flex ${
+          className={`px-4 py-2 h-full text-gray-600 flex ${
             isMobile ? "flex-col gap-0 items-start" : "gap-4 items-center"
           }`}
           initial="hidden"
@@ -118,7 +128,7 @@ const GetReddAcronymBar: React.FC = () => {
           {ACRONYMS.map(({ letter, word }, index) => (
             <motion.div
               key={index}
-              className={`flex ${isMobile ? "items-baseline" : "items-baseline"}`}
+              className={`flex items-baseline`}
               variants={itemVariants}
             >
               <span

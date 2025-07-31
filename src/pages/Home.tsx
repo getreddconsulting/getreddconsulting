@@ -94,7 +94,7 @@ useEffect(() => {
       {/* Origami Hero Section */}
       <div
         ref={sliderRef}
-        className={`fixed inset-0 z-[100] transition-transform duration-1000 ease-in-out bg-transparent flex flex-col items-center justify-center ${
+        className={`fixed inset-0 z-50 transition-transform duration-1000 ease-in-out bg-transparent flex flex-col items-center justify-center ${
           showOrigamiHero ? "translate-x-0" : "-translate-x-full"
         }`}
         style={{ pointerEvents: showOrigamiHero ? "auto" : "none" }}

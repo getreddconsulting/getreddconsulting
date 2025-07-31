@@ -4,9 +4,7 @@ import LeadershipModal from "./LeadershipModal";
 
 const BlogOrLeadership = () => {
   const [showModal, setShowModal] = useState(false);
-  
 
-  // Optional: close on Escape key press
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setShowModal(false);
@@ -15,6 +13,14 @@ const BlogOrLeadership = () => {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  // Notify parent about modal visibility
+  useEffect(() => {
+    const event = new CustomEvent("leadershipModalToggle", {
+      detail: { open: showModal },
+    });
+    window.dispatchEvent(event);
+  }, [showModal]);
+
   return (
     <section
       id="blog"
@@ -22,7 +28,6 @@ const BlogOrLeadership = () => {
     >
       <LeadershipCard onReadMore={() => setShowModal(true)} />
       {showModal && <LeadershipModal onClose={() => setShowModal(false)} />}
-        
     </section>
   );
 };

@@ -15,7 +15,7 @@ export const mediaData = {
         "/media/events/Naggl/NAGGL_conference_6.jpg",
         "/media/events/Naggl/NAGGL_conference_2.jpg", 
         "/media/events/Naggl/NAGGL_conference_7.jpg",
-        // "/media/events/Naggl/NAGGL in nash.jpg",
+        "/media/events/video/video1.mp4",
         // "/media/events/video/video.mp4",
       ]
     },
