@@ -91,96 +91,96 @@ const financeData: SectionData = {
 const DualCardsSection: React.FC = () => {
   const [activeCard, setActiveCard] = useState<"business" | "finance" | null>(null);
 
-const renderExpandedView = (data: SectionData, type: "business" | "finance") => (
-  <div
-    className="relative h-[80vh] flex flex-col justify-between bg-cover bg-center text-white shadow-xl  overflow-hidden p-4"
-    style={{ backgroundImage: `url(${data.image})` }}
-  >
-    {/* Overlay for dark effect */}
-    <div className="absolute inset-0 bg-black/60 z-0" />
+  const renderExpandedView = (data: SectionData, type: "business" | "finance") => (
+    <div
+      className="relative h-full w-full flex flex-col justify-between bg-cover bg-center text-white shadow-xl overflow-hidden"
+      style={{ backgroundImage: `url(${data.image})` }}
+    >
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/60 z-0" />
 
-    {/* Content Area */}
-    <div className="relative z-10 p-6 overflow-y-auto flex-grow space-y-6">
-      {/* Close Button */}
-      <button
-        onClick={() => setActiveCard(null)}
-        className="absolute top-3 right-4 text-white hover:text-red-300 text-2xl font-bold bg-transparent focus:outline-none border-none"
-      >
-        ✕
-      </button>
-
-      <h3 className="text-3xl font-bold text-white">{data.title}</h3>
-
-      {data.details.map((section, i) => (
-        <motion.div
-          key={i}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: i * 0.15 }}
-          className="space-y-1"
+      {/* Content */}
+      <div className="relative z-10 p-6 overflow-y-auto flex-grow space-y-6">
+        <button
+          onClick={() => setActiveCard(null)}
+          className="absolute top-3 right-4 text-white hover:text-red-300 text-2xl font-bold bg-transparent focus:outline-none border-none"
         >
-          <h4 className="text-lg font-bold text-red-500 uppercase">
-            {section.header}
-          </h4>
-          <p className="text-base text-gray-200">{section.points[0]}</p>
-          {section.points.length > 1 && (
-            <ul className="list-disc pl-6 text-sm font-semibold text-gray-300 space-y-1">
-              {section.points.slice(1).map((point, idx) => (
-                <li key={idx}>{point}</li>
-              ))}
-            </ul>
-          )}
-        </motion.div>
-      ))}
+          ✕
+        </button>
 
-      <p className="text-sm text-gray-100 font-medium mt-6">{data.endingNote}</p>
-    </div>
+        <h3 className="text-3xl font-bold text-white">{data.title}</h3>
 
-    {/* CTA Button */}
-    <div className="relative z-10 p-4 text-right">
-      <a
-        href={
-          type === "business"
-            ? "https://form.typeform.com/to/pWtAPyKf?typeform-source=getreddconsulting.com"
-            : "https://form.typeform.com/to/BCPjYXxl?typeform-source=getreddconsulting.com"
-        }
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-xs text-white bg-[#d32f2f] hover:bg-[#b71c1c] px-4 py-2 rounded shadow"
-      >
-        {type === "business" ? "GET IN TOUCH" : "GET IN TOUCH"}
-      </a>
+        {data.details.map((section, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.15 }}
+            className="space-y-1"
+          >
+            <h4 className="text-lg font-bold text-red-500 uppercase">{section.header}</h4>
+            <p className="text-base text-gray-200">{section.points[0]}</p>
+            {section.points.length > 1 && (
+              <ul className="list-disc pl-6 text-sm font-semibold text-gray-300 space-y-1">
+                {section.points.slice(1).map((point, idx) => (
+                  <li key={idx}>{point}</li>
+                ))}
+              </ul>
+            )}
+          </motion.div>
+        ))}
+
+        <p className="text-sm text-gray-100 font-medium mt-6">{data.endingNote}</p>
+      </div>
+
+      {/* CTA Button */}
+      <div className="relative z-10 p-4 text-right">
+        <a
+          href={
+            type === "business"
+              ? "https://form.typeform.com/to/pWtAPyKf?typeform-source=getreddconsulting.com"
+              : "https://form.typeform.com/to/BCPjYXxl?typeform-source=getreddconsulting.com"
+          }
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xs text-white bg-[#d32f2f] hover:bg-[#b71c1c] px-4 py-2 rounded shadow"
+        >
+          GET IN TOUCH
+        </a>
+      </div>
     </div>
+  );
+
+  const renderCard = (data: SectionData, type: "business" | "finance") => (
+  <div className="w-full h-[650px] overflow-hidden flex justify-center items-start">
+    {activeCard === type ? renderExpandedView(data, type) : (
+      <div className="bg-white shadow-lg w-[600px] h-full flex flex-col">
+        <div className="w-full h-[500px] flex items-center justify-center overflow-hidden">
+          <img
+            src={data.image}
+            alt={data.title}
+            className="h-full w-full object-cover"
+          />
+        </div>
+        <div className="p-3 flex flex-col flex-grow justify-start">
+          <h3 className="text-xl font-semibold text-[#b71c1c]">{data.title}</h3>
+          <p className="text-sm text-gray-700 my-2">{data.summary}</p>
+          <button
+            onClick={() => setActiveCard(type)}
+            className="bg-[#d32f2f] hover:bg-[#b71c1c] text-white px-4 py-2 rounded mt-auto"
+          >
+            More Details
+          </button>
+        </div>
+      </div>
+    )}
   </div>
 );
 
 
-
-  const renderCard = (data: SectionData, type: "business" | "finance") => (
-    <div className="w-full h-full flex justify-center">
-      {activeCard === type ? renderExpandedView(data, type) : (
-        <div className="bg-white shadow-lg  w-full h-auto flex flex-col ">
-          <div className="w-full h-96  overflow-hidden">
-            <img src={data.image} alt={data.title} className="w-full  h-full" />
-          </div>
-          <div className="p-4 flex flex-col flex-grow justify-end">
-            <h3 className="text-xl font-semibold text-[#b71c1c]">{data.title}</h3>
-            <p className="text-sm text-gray-700 mb-4">{data.summary}</p>
-            <button
-              onClick={() => setActiveCard(type)}
-              className="bg-[#d32f2f] hover:bg-[#b71c1c] text-white px-4 py-2 rounded"
-            >
-              More Details
-            </button>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-
   return (
     <div className="min-h-px bg-[#f4f8fc] px-4 py-10">
-      <div className="flex flex-col md:flex-row gap-6 h-full">
+      <div className="flex flex-col md:flex-row gap-6">
         <div className="w-full md:w-1/2">{renderCard(businessData, "business")}</div>
         <div className="w-full md:w-1/2">{renderCard(financeData, "finance")}</div>
       </div>
