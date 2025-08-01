@@ -1,4 +1,5 @@
 {
+  "homepage": "https://getreddconsulting.github.io/getreddconsulting",
   "name": "getredd-demo",
   "private": true,
   "version": "0.0.0",
@@ -8,12 +9,16 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "predeploy": "vite build",
+    "deploy": "gh-pages -d dist"
+
   },
   "dependencies": {
     "@react-oauth/google": "^0.12.2",
     "classnames": "^2.5.1",
     "framer-motion": "^12.18.1",
+    "gh-pages": "^6.3.0",
     "lucide-react": "^0.514.0",
     "pdfjs-dist": "^5.3.93",
     "react": "^19.1.0",
