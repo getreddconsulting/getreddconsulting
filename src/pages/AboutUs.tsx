@@ -55,7 +55,7 @@ const AboutUs = () => {
         <motion.img
           src={LincolnBg}
           alt="Right-side background with Lincoln texture"
-          className="absolute top-0 right-[-70px] lg:right-[-250px] pointer-events-none transform scale-x-[-1] select-none min-h-screen w-auto max-w-none z-0"
+          className="absolute top-0 right-0 h-full w-full object-cover transform scale-x-[-1] select-none z-0"
           initial={{ opacity: 0 }}
           animate={{ opacity: contentVisible ? 1 : 0 }}
           transition={{ duration: 1.2, ease: "easeInOut" }}
@@ -70,7 +70,7 @@ const AboutUs = () => {
 
       <div
         id="about"
-        className="relative z-10 flex flex-col md:gap-6 lg:gap-4 pl-4  py-12 lg:pt-24 pb-16 pr-9 lg:pb-16 w-full max-w-7xl  mx-auto items-start"
+        className="relative z-10 flex flex-col gap-4 md:gap-6 lg:gap-4 pl-4 lg:pl-16  py-12 lg:pt-24 pb-16 pr-9 lg:pb-16 w-full   mx-auto items-start"
       >
         
         
@@ -100,7 +100,7 @@ const AboutUs = () => {
         </div>
 
         {/* Card Content Section */}
-        <div ref={sectionRef} className="flex flex-col gap-4 md:gap-20 lg:gap-16">
+        <div ref={sectionRef} className="flex flex-col gap-8 md:gap-20 lg:gap-16">
           {aboutCards.map((card, idx) => (
             <motion.div
               key={card.title}

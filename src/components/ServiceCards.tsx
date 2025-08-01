@@ -43,7 +43,9 @@ const ServiceCards = () => {
       <motion.div
         className="absolute inset-0 z-0"
         initial={{ opacity: 0, scale: 1.0 }}
-        animate={visible ? { opacity: 1, scale: 1.1 } : { opacity: 1, scale: 1.1 }}
+        animate={
+          visible ? { opacity: 1, scale: 1.1 } : { opacity: 1, scale: 1.1 }
+        }
         transition={{ duration: 1.5, delay: 0.5, ease: [0.4, 0, 0.2, 1] }}
         style={{ y }}
       >
@@ -80,44 +82,30 @@ const ServiceCards = () => {
               }
         }
         transition={{ duration: 1.5, delay: 0.5, ease: [0.4, 0, 0.2, 1] }}
-        style={{ backgroundSize: visible ? "100%" : "10%", backgroundPosition: "center" }}
+        style={{
+          backgroundSize: visible ? "100%" : "10%",
+          backgroundPosition: "center",
+        }}
       />
 
-      {/* Center vertical line and icon */}
-      {/* <div className="hidden sm:block absolute left-1/2 -translate-x-1/2 top-0 h-full flex-col items-center z-20">
-        <div className="hidden sm:block w-0.5 h-[90%] bg-red-600 rounded-full" />
-        <motion.div
-          className="absolute left-1/2 -translate-x-1/2 w-24 h-24 flex items-center justify-center"
-          initial={{ top: 0 }}
-          animate={visible ? { top: "calc(90% - 24px)" } : { top: 0 }}
-          transition={{ duration: 2.0, ease: [0.4, 0, 0.2, 1] }}
-        >
-          <img
-            src={briefcase}
-            alt="Service Icon"
-            className="w-24 h-24 bg-white rounded-full border-2 pt-3 pr-1 mb-4 border-red-600 shadow-lg"
-          />
-        </motion.div>
-      </div> */}
 
       <div className="hidden md:block  absolute left-1/2 -translate-x-1/2 top-0 h-full flex-col items-center z-20">
-  <div className="hidden sm:block w-0.5 h-[90%] bg-red-600 rounded-full" />
-  <motion.div
-    className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center"
-    initial={{ top: 0 }}
-    animate={visible ? { top: "calc(90% - 48px)" } : { top: 0 }}
-    transition={{ duration: 2.0, ease: [0.4, 0, 0.2, 1] }}
-  >
-    <div className="w-24 h-24 rounded-full bg-red-600 flex items-center justify-center shadow-xl border-8 border-white">
-      <img
-        src={briefcase}
-        alt="Service Icon"
-        className="w-24 h-24 mt-4 mr-1 object-contain"
-      />
-    </div>
-  </motion.div>
-</div>
-
+        <div className="hidden sm:block w-0.5 h-[90%] bg-red-600 rounded-full" />
+        <motion.div
+          className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center"
+          initial={{ top: 0 }}
+          animate={visible ? { top: "calc(90% - 48px)" } : { top: 0 }}
+          transition={{ duration: 2.0, ease: [0.4, 0, 0.2, 1] }}
+        >
+          <div className="w-24 h-24 rounded-full bg-red-600 flex items-center justify-center shadow-xl border-8 border-white">
+            <img
+              src={briefcase}
+              alt="Service Icon"
+              className="w-24 h-24 mt-4 mr-1 object-contain"
+            />
+          </div>
+        </motion.div>
+      </div>
 
       {/* Main content */}
       <div className="relative z-30 flex flex-col md:flex-row w-full max-w-7xl px-4 md:px-5 py-20 lg:px-8 lg:py-10 gap-8 lg:gap-8">
@@ -137,7 +125,11 @@ const ServiceCards = () => {
             <h2 className="text-3xl sm:text-4xl font-semibold text-red-500 mb-4">
               Specialized Services
             </h2>
-            <img src={ReddEyeBox} alt="The ReddEye Approach" className="h-10 sm:h-14 w-auto mb-4" />
+            <img
+              src={ReddEyeBox}
+              alt="The ReddEye Approach"
+              className="h-10 sm:h-14 w-auto mb-4"
+            />
             <div className="w-full h-0.5 mb-4 bg-red-600 transition-all duration-700" />
           </motion.div>
 

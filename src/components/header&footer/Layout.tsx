@@ -13,7 +13,7 @@ const navItemVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      delay: 4 + 0.15 * i,
+      delay: 3  + 0.25 * i,
       duration: 0.4,
       ease: [0.42, 0, 0.58, 1],
     },
@@ -71,7 +71,7 @@ const headerClass = `${
   isMediaPage ? "absolute top-0 left-0" : "fixed top-0"
 } ${isLeadershipModalOpen ? "z-10" : "z-40"} w-full transition-all duration-300 px-2 lg:px-6 py-1 lg:py-3 lg:py-2 flex items-center justify-between ${
   scrolled
-    ? "bg-gradient-to-b from-gray-900 to-gray-500 backdrop-blur-lg shadow-md h-20"
+    ? "bg-gradient-to-b from-gray-500 via-gray-700 to-gray-900 backdrop-blur-lg shadow-md h-20"
     : "bg-transparent"
 }`;
 
