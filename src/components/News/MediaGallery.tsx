@@ -11,7 +11,7 @@ interface MediaGalleryProps {
 const MediaGallery: React.FC<MediaGalleryProps> = ({
   items,
   onClose,
-  eventTitle,
+  // eventTitle,
   primaryImage,
 }) => {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);

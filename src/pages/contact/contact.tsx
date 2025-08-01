@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import ContactImage from "../../assets/extra/contact.jpg"; // Make sure this path is correct
 
