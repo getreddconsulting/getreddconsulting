@@ -13,7 +13,7 @@ const navItemVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      delay: 4 + 0.15 * i,
+      delay: 3 + 0.15 * i,
       duration: 0.4,
       ease: [0.42, 0, 0.58, 1],
     },
@@ -30,17 +30,23 @@ export const Header = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 950);
   const [isLeadershipModalOpen, setIsLeadershipModalOpen] = useState(false);
 
-useEffect(() => {
-  const handleLeadershipModalToggle = (e: CustomEvent) => {
-    setIsLeadershipModalOpen(e.detail.open);
-  };
+  useEffect(() => {
+    const handleLeadershipModalToggle = (e: CustomEvent) => {
+      setIsLeadershipModalOpen(e.detail.open);
+    };
 
-  window.addEventListener("leadershipModalToggle", handleLeadershipModalToggle as EventListener);
+    window.addEventListener(
+      "leadershipModalToggle",
+      handleLeadershipModalToggle as EventListener
+    );
 
-  return () => {
-    window.removeEventListener("leadershipModalToggle", handleLeadershipModalToggle as EventListener);
-  };
-}, []);
+    return () => {
+      window.removeEventListener(
+        "leadershipModalToggle",
+        handleLeadershipModalToggle as EventListener
+      );
+    };
+  }, []);
 
   const isMediaPage = location.pathname === "/media";
 
@@ -51,7 +57,7 @@ useEffect(() => {
   }, []);
 
   useEffect(() => {
-if (isMediaPage) return;
+    if (isMediaPage) return;
 
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -60,6 +66,22 @@ if (isMediaPage) return;
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isMediaPage]);
 
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        getInTouchOpen &&
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
+        setGetInTouchOpen(false);
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [getInTouchOpen]);
+
   const navLinks = [
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
@@ -67,28 +89,25 @@ if (isMediaPage) return;
     { id: "blog", label: "Leadership" },
   ];
 
-const headerClass = `${
-  isMediaPage ? "absolute top-0 left-0" : "fixed top-0"
-} ${isLeadershipModalOpen ? "z-10" : "z-40"} w-full transition-all duration-300 px-2 lg:px-6 py-1 lg:py-3 lg:py-2 flex items-center justify-between ${
-  scrolled
-    ? "bg-gradient-to-b from-gray-900 to-gray-500 backdrop-blur-lg shadow-md h-20"
-    : "bg-transparent"
-}`;
-
-
+  const headerClass = `${
+    isMediaPage ? "absolute top-0 left-0" : "fixed top-0"
+  } ${isLeadershipModalOpen ? "z-10" : "z-40"} w-full transition-all duration-300 px-2 lg:px-6 py-1 lg:py-3 lg:py-2 flex items-center justify-between ${
+    scrolled
+      ? "bg-gradient-to-b from-gray-500 via-gray-700 to-gray-900 backdrop-blur-lg shadow-md h-20"
+      : "bg-transparent"
+  }`;
 
   return (
     <header className={headerClass}>
       {/* Logo */}
       <div className="flex items-center">
-       <img
-  src={LogoFooter}
-  alt="Logo"
-  className={`transition-all duration-300 ease-in-out drop-shadow-lg ${
-    scrolled ? "h-20 w-32" : "h-20 w-32 lg:h-28 lg:w-40 mt-4"
-  }`}
-/>
-
+        <img
+          src={LogoFooter}
+          alt="Logo"
+          className={`transition-all duration-300 ease-in-out drop-shadow-lg ${
+            scrolled ? "h-20 w-32" : "h-20 w-32 lg:h-28 lg:w-40 mt-4"
+          }`}
+        />
       </div>
 
       {/* Desktop Navigation */}

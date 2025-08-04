@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Business from "../../assets/extra/BusinessOwners.jpeg";
-import Finance from "../../assets/extra/financial.jpeg";
+import Finance from "../../assets/extra/finance.jpg";
 
 interface SectionData {
   title: string;
@@ -154,7 +154,7 @@ const DualCardsSection: React.FC = () => {
   const renderCard = (data: SectionData, type: "business" | "finance") => (
   <div className="w-full h-[650px] overflow-hidden flex justify-center items-start">
     {activeCard === type ? renderExpandedView(data, type) : (
-      <div className="bg-white shadow-lg w-[600px] h-full flex flex-col">
+      <div className="bg-white shadow-lg w-[700px] h-full flex flex-col">
         <div className="w-full h-[500px] flex items-center justify-center overflow-hidden">
           <img
             src={data.image}
@@ -180,7 +180,7 @@ const DualCardsSection: React.FC = () => {
 
   return (
     <div className="min-h-px bg-[#f4f8fc] px-4 py-10">
-      <div className="flex flex-col md:flex-row gap-6">
+      <div className="flex flex-col md:flex-row gap-4 lg:gap-2">
         <div className="w-full md:w-1/2">{renderCard(businessData, "business")}</div>
         <div className="w-full md:w-1/2">{renderCard(financeData, "finance")}</div>
       </div>
