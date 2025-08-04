@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import LogoFooter from "../../assets/logo/GRC Logo.png";
+import LogoFooter from "../../assets/logo/GRC_Logo.png";
 import Contact from "../../pages/contact/contact";
 import PrimaryButton from "../Buttons/primarybutton";
 import type { Variants } from "framer-motion";

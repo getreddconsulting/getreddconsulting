@@ -4,7 +4,7 @@ import { MockData } from "../data/Mockdata";
 
 import briefcase from "../assets/GRC_Elements/Briefcase_icon_circle.png";
 import ReddEyeBox from "../assets/GRC_Elements/The_ReddEye_Approach_box.png";
-import GetReddLogo from "../assets/logo/GRC Logo.png";
+import GetReddLogo from "../assets/logo/GRC_Logo.png";
 
 const ServiceCards = () => {
   const sectionRef = useRef<HTMLDivElement>(null);

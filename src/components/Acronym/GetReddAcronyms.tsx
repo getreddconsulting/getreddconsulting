@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, easeOut } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import BirdImage from "../../assets/logo/GRC Logo.png";
+import BirdImage from "../../assets/logo/GRC_Logo.png";
 
 const ACRONYMS = [
   { letter: "G", word: "rowth" },

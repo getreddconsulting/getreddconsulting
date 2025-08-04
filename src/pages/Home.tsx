@@ -2,7 +2,7 @@
 // import { Header as HeaderBase } from "../components/header&footer/Layout";
 import { motion, useAnimation } from "framer-motion";
 import useScrollLock from "../hooks/useScrollLock";
-import origamiHero from "../assets/logo/GRC Logo.png";
+import origamiHero from "../assets/logo/GRC_Logo.png";
 import heroBg from "../assets/GRC_Elements/Gray_Texture_bkgd.jpg";
 import { useEffect, useRef, useState } from "react";
 import heroVideo from "../assets/video/3249940-uhd_3840_2160_25fps.mp4";
