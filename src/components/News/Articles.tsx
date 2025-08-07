@@ -24,14 +24,14 @@ const Articles: React.FC = () => {
           href={article.pdf}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transition-transform hover:scale-[1.02] block"
+          className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transition-transform hover:scale-[1.02] block border border-red-600"
         >
           <img
             src={article.image}
             alt={article.title}
             className="w-full aspect-square object-cover"
           />
-          <div className="p-4">
+          <div className="p-4 ">
             <h3 className="text-xl text-red-600 font-semibold">{article.title}</h3>
             <p className="text-gray-600 text-sm mt-2 line-clamp-3">{article.description}</p>
           </div>

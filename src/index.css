@@ -236,19 +236,19 @@ button:focus-visible {
 }
 /* src/styles/global.css */
 
-.getreddText {
-  font-size: 2.5rem;
-  font-weight: bold;
-  background: linear-gradient(to right, #ec1c24, #8b0000);
- background-clip: text;               /* ← Standard version */
-  -webkit-background-clip: text;    
-  -webkit-text-fill-color: transparent;
-}
+  .getreddText {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(to right, #ec1c24, #8b0000);
+  background-clip: text;               /* ← Standard version */
+    -webkit-background-clip: text;    
+    -webkit-text-fill-color: transparent;
+  }
 
-input:-webkit-autofill,
-textarea:-webkit-autofill,
-select:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
-  box-shadow: 0 0 0px 1000px white inset !important;
-  -webkit-text-fill-color: #1f2937 !important; /* Tailwind gray-800 */
-}
+  input:-webkit-autofill,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    box-shadow: 0 0 0px 1000px white inset !important;
+    -webkit-text-fill-color: #1f2937 !important; /* Tailwind gray-800 */
+  }

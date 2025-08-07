@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import EventCard from "../components/News/EventCard";
-import NewsletterGallery from "../components/News/Newsletters";
+// import NewsletterGallery from "../components/News/Newsletters";
 import Articles from "../components/News/Articles";
 import MediaGallery from "../components/News/MediaGallery";
 import { mediaData } from "../data/mediaData";
@@ -18,6 +18,10 @@ interface MediaEvent {
 }
 
 const MediaPage: React.FC = () => {
+    useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
 const [activeTab, setActiveTab] = useState<TabType>("events");
   const [mediaItems, setMediaItems] = useState<string[]>([]);
   const [selectedEvent, setSelectedEvent] = useState<MediaEvent | null>(null);
@@ -28,7 +32,7 @@ const [activeTab, setActiveTab] = useState<TabType>("events");
   const [isGalleryClosing, setIsGalleryClosing] = useState(false);
 
 
-const tabs = ["events", "newsletters", "articles"] as const;
+const tabs = ["events", "articles"] as const;
 type TabType = typeof tabs[number];
 
   // const highlightsRef = useRef<HTMLDivElement>(null); // ref for scrolling
@@ -75,8 +79,8 @@ const renderCards = () => {
           ))}
         </div>
       );
-    case "newsletters":
-      return <NewsletterGallery />;
+    // case "newsletters":
+    //   return <NewsletterGallery />;
     case "articles":
       return <Articles />;
     default:

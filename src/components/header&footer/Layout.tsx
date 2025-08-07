@@ -101,6 +101,7 @@ export const Header = () => {
     <header className={headerClass}>
       {/* Logo */}
       <div className="flex items-center">
+        <a href="/">
         <img
           src={LogoFooter}
           alt="Logo"
@@ -108,6 +109,7 @@ export const Header = () => {
             scrolled ? "h-20 w-32" : "h-20 w-32 lg:h-28 lg:w-40 mt-4"
           }`}
         />
+        </a>
       </div>
 
       {/* Desktop Navigation */}
@@ -201,7 +203,7 @@ export const Header = () => {
                 setShowContact(true);
                 setGetInTouchOpen(false);
               }}
-              className="focus:outline-none hover:outline-none"
+              className="focus:outline-none hover:outline-none bg-transparent"
             >
               contact us
             </PrimaryButton>
@@ -243,7 +245,7 @@ export const Header = () => {
               setShowContact(true);
               setMenuOpen(false);
             }}
-            className="mt-2 text-sm border border-red-500 hover:bg-red-700 rounded-lg px-4 py-2"
+            className="mt-2 text-sm border border-red-500 hover:bg-red-700 rounded-lg px-4 py-2 bg-transparent"
           >
             Contact Us
           </button>

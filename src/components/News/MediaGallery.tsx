@@ -58,7 +58,7 @@ const MediaGallery: React.FC<MediaGalleryProps> = ({
   return (
     <div className="fixed inset-0 bg-black bg-opacity-90 z-50 p-6 overflow-y-auto">
       <button
-        className="absolute top-0 right-0 text-gray text-4xl font-medium hover:text-red-500 z-50   p-2 focus:outline-none focus:ring-0 border-none"
+        className="absolute top-0  right-0 text-gray text-4xl font-medium hover:text-red-500 z-50   p-2 focus:outline-none focus:ring-0 border-none"
         onClick={onClose}
       >
         &times;

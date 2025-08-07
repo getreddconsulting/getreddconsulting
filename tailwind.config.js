@@ -22,6 +22,7 @@ export default {
   'hover:bg-transparent', // ✅ override unwanted hover:bg
   'active:bg-transparent', // ✅ for active state
   'focus:bg-transparent', // ✅ for focus state (optional)
+    'bg-transparent',  
 ],
 
   theme: {

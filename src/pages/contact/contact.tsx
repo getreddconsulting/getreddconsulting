@@ -94,7 +94,7 @@ const Contact: React.FC<ContactProps> = ({ isOpen, onClose }) => {
 
         <button
           onClick={onClose}
-          className="mt-6 text-center w-full text-sm text-gray-400 hover:text-gray-600 transition"
+          className="mt-6 text-center w-full text-sm text-gray-400 hover:text-gray-600 transition bg-white hover:border-red-600"
         >
           Close
         </button>

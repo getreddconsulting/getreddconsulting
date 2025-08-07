@@ -5,20 +5,9 @@ import useScrollLock from "../hooks/useScrollLock";
 import origamiHero from "../assets/logo/GRC_Logo.png";
 import heroBg from "../assets/GRC_Elements/Gray_Texture_bkgd.jpg";
 import { useEffect, useRef, useState } from "react";
-import heroVideo from "../assets/video/3249940-uhd_3840_2160_25fps.mp4";
+import heroVideo from "../assets/video/bg-video.mp4";
 import PrimaryButton from "../components/Buttons/primarybutton";
 import { useLocation } from "react-router-dom";
-
-// import MainPage from "../App.tsx"
-// import AboutUs from "./AboutUs";
-// import Services from "../components/ServiceCards";
-// import OurApproach from "./OurApproach";
-// import BlogOrLeadership from "../components/Leadership/BlogOrLeadership";
-// import GetReddAcronyms from "../components/Acronym/GetReddAcronyms";
-// import CompetitiveAdvantage from "../components/CompetitiveAdvantage.tsx";
-// import ConsultingHighlights from "../components/CompetitiveAdvantage.tsx";
-// import Contact from "../components/CallToAction";
-// import { lockScroll, unlockScroll } from "../utils/scrollLock"; // adjust path if needed
 
 const Home = () => {
     const location = useLocation();

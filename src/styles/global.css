@@ -12,6 +12,7 @@
   overflow: hidden;
   transition: 0.5s;
   border: none;
+   /* background-color: transparent; */
   /* border-radius: 12%; */
 }
 
@@ -27,6 +28,7 @@
 .primary-button span {
   position: absolute;
   display: block;
+  background-color: transparent;
 }
 
 .primary-button span:nth-child(1) {
