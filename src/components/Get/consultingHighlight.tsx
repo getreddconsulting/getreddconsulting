@@ -100,7 +100,7 @@ const DualCardsSection: React.FC = () => {
       <div className="absolute inset-0 bg-black/60 z-0" />
 
       {/* Content */}
-      <div className="relative z-10 p-6 overflow-y-auto flex-grow space-y-6">
+      <div className="relative z-10 p-6 lg:p-12 overflow-y-auto flex-grow space-y-6">
         <button
           onClick={() => setActiveCard(null)}
           className="absolute top-3 right-4 text-white hover:text-red-300 text-2xl font-bold bg-transparent focus:outline-none border-none"
