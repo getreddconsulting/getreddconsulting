@@ -238,51 +238,7 @@ useEffect(() => {
               expert guidance and proven strategies.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              {/* <a
-                href="https://getreddconsulting.com/m/create-account"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3 sm:px-8 sm:py-3 rounded bg-red-700 text-white font-bold shadow hover:bg-red-800 transition text-base sm:text-lg"
-              >
-                Get Started
-              </a> */}
-
-              {/* <a href="#cta" className="AnimatedButton">
-  <svg  
-    className="AnimatedButton-svg"
-    width="300" 
-    height="80" 
-    viewBox="0 0 300 80"
-  >
-    <rect 
-      className="AnimatedButton-line AnimatedButton-line--outer"
-      strokeWidth="8"
-      stroke="#ba1d1d" 
-      strokeLinecap="round"
-      fill="none" 
-      x="4" 
-      y="4" 
-      width="292" 
-      height="72" 
-      rx="36"
-    />
-    <rect 
-      className="AnimatedButton-line AnimatedButton-line--inner"
-      strokeWidth="4"
-      stroke="#f74e4e" 
-      strokeLinecap="round"
-      fill="none" 
-      x="4" 
-      y="4" 
-      width="292" 
-      height="72" 
-      rx="36"
-    />
-  </svg>
-  <div className="AnimatedButton-content">
-    Schedule Consulting Call
-  </div>
-</a> */}
+             
 
               <PrimaryButton
                 href="#cta"
@@ -293,38 +249,10 @@ useEffect(() => {
             </div>
           </div>
         </section>
-        {/* <MainPage /> */}
-        {/* <MainPage /> */}
-        {/* About Us Section */}
-        {/* <AboutUs /> */}
-        {/* Our Approach Section */}
-        {/* <OurApproach /> */}
-        {/* Services Section */}
-        {/* <section
-          id="services"
-          className="w-full  sm:px-4  sm:mt-16 space-y-8"
-        > */}
-        {/* <h2 className="text-[36px] md:text-4xl font-bold bg-gradient-to-r from-red-800 via-red-500 to-red-700 bg-clip-text text-transparent mb-8 text-center drop-shadow-lg">
-            Our Services
-          </h2> */}
-        {/* <div className="relative h-1 w-32 sm:w-40 md:w-52 bg-transparent overflow-hidden mx-auto mb-8">
-            <div className="h-full bg-red-600 w-full line-draw origin-left" />
-          </div> */}
-        {/* <ServiceCards /> */}
-        {/* </section> */}
-        {/* Our Process Section
-        <OurProcess />
-        {/* Benefits Section */}
-        {/* <Benefits /> */}
-        {/* Competitive Advantage Section */}
-        {/* <CompetitiveAdvantage /> */}
-        {/* Call To Action Section */}
-        {/* <BlogOrLeadership /> */}
-        {/* <CallToAction />  */}
-        {/* ...other sections as needed... */}
+       
       </main>
 
-      {/* <Footer /> */}
+    
     </div>
   );
 };
