@@ -18,13 +18,13 @@ import NagglAnniversary from "../assets/media/events/NagglAnniversary/NAGGLanniv
 import NagglAnniversary2 from "../assets/media/events/NagglAnniversary/NAGGLanniversary_2.jpg";
 import NagglAnniversary3 from "../assets/media/events/NagglAnniversary/NAGGLanniversary_3.jpg";
 import NagglAnniversary4 from "../assets/media/events/NagglAnniversary/NAGGLanniversary_4.mp4";
-import NagglAnniversary5 from "../assets/media/events/NagglAnniversary/NAGGLanniversary_5.jpg";
+import HHHH6 from "../assets/media/events/NagglAnniversary/NAGGLanniversary_5.jpg";
 import HHHH from "../assets/media/events/HHHH/hhhh2023_6.jpg";
 import HHHH2 from "../assets/media/events/HHHH/hhhh2023_5.jpg";
 import HHHH3 from "../assets/media/events/HHHH/hhhh2023_4.jpg";
 import HHHH4 from "../assets/media/events/HHHH/hhhh2023_3.jpg";
 import HHHH5 from "../assets/media/events/HHHH/hhhh2023_2.jpg";
-import HHHH6 from "../assets/media/events/HHHH/hhhh2023_1.jpg";
+// import HHHH6 from "../assets/media/events/HHHH/hhhh2023_1.jpg";
 import NEWSLETTER1 from "../assets/media/Article/article_1.jpg";
 import NEWSLETTER2 from "../assets/media/Article/article_2.jpg";
 
@@ -68,7 +68,7 @@ export const mediaData = {
         NagglAnniversary2,
         NagglAnniversary3,
         NagglAnniversary4,
-        NagglAnniversary5,
+        
       ],
     },
     {
